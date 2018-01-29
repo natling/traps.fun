@@ -1,18 +1,78 @@
+<!-- by jeanne and natalie -->
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>traps.fun</title>
+  <title>welcome to FUN MERCHANTS!</title>
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="files/favicon.png"/>
   <style>
     body {
+      margin: 0px;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background: black;
+    }
+
+    p {
+      margin: 0px;
+      display: inline-block;
+      font-family: 'Comic Sans MS';
     }
   </style>
 </head>
 
 <body>
+  <a id="container" href="video-game-01"></a>
 </body>
+
+<script src="libraries/natalie.js"></script>
+
+<script>
+  var colors = [ 'deface', 'dad', 'baccae', 'ebb', 'dab', 'facade', 'decade', 'fed', 'fee', 'add', 'efface', 'dabbed', 'bedded', 'baa', 'accede', 'fab', 'fad', 'ace', 'bed', 'bee', 'beaded', 'bad', 'cab', 'cad' ];
+
+  var fun = 'FUN MERCHANTS'.split('');
+
+  var container = document.getElementById('container');
+
+  for (var i = 0; i < fun.length; i++) {
+    (function(i) {
+      var p = document.createElement('p');
+      container.appendChild(p);
+
+      p.innerHTML = fun[i];
+
+      function newStyle() {
+        p.style.transition = 'font-size 2s, padding 2s, transform 2s, color 2s';
+        p.style.fontSize   = randomIntegerInclusive(60, 80) + 'px';
+        p.style.padding    = randomIntegerInclusive(10, 20) + 'px';
+        p.style.transform  = 'rotate(' + randomIntegerInclusive(-16, 16) + 'deg)';
+        p.style.color      = '#' + randomItem(colors);
+      }
+
+      function hoverStyle() {
+        p.style.transition = 'font-size 0.5s, padding 0.5s, transform 0.5s, color 0.5s';
+        p.style.fontSize   = '100px';
+        p.style.padding    = '30px';
+        p.style.transform  = 'rotate(0deg)';
+        p.style.color      = '#' + randomItem(colors);
+      }
+
+      newStyle();
+
+      p.onmouseover = function() {
+        hoverStyle();
+      }
+
+      p.onmouseout = function() {
+        newStyle();
+      }
+    })(i);
+  }
+</script>
 
 </html>
